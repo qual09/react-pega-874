@@ -6,6 +6,8 @@ import { authLogin } from "../_helpers/auth";
 
 import { userActions } from "../_actions";
 
+import './LoginPage.css';
+
 class LoginPage extends Component {
   constructor(props) {
     super(props);
@@ -45,13 +47,12 @@ class LoginPage extends Component {
         dispatch(userActions.login(username, password));
       }
     }
-
   }
 
   render() {
     let btnLabel = this.isOAuth() ? "Start" : "Log In";
     return (
-      <Grid verticalAlign="middle" textAlign="center">
+      <Grid className="LoginPage" verticalAlign="middle" textAlign="center">
         <Grid.Column>
           <Header style={{ marginTop: 12 }} color="blue" as="h2" icon>
             <Icon name="home" />

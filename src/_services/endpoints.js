@@ -7,7 +7,7 @@ export const loginBoxType = {
 
 export const endpoints = {
   // Change this URL if you want to point the React application at another Pega server.
-  PEGAURL: "https://localhost:1080/prweb", // local Pega server
+  PEGAURL: "https://localhost:8443/prweb", // local Pega server
 
   // Specify an appAlias to allow operators to access application when this application's access
   //  group is not the default access group specified within the operator record.
