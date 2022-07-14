@@ -1,9 +1,14 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import { connect } from "react-redux";
 import { Tab, Container, Menu, Icon } from "semantic-ui-react";
 
 import './Sandbox.css';
+import { ChatMockData } from './Mock.js';
+import EmojiPickerDemo from "./EmojiPickerDemo";
 
+import { EmojiPicker, Flex, Input } from '@pega/cosmos-react-core';
+
+import { ChatTranscript } from '@pega/cosmos-react-social';
 import {
   Card,
   CardHeader,
@@ -28,10 +33,44 @@ class Sandbox extends Component {
 
   }
 
+  // EmojiPickerDemo() {
+  //   // const [value, setValue] = useState('');
+  //   const onEmojiSelect = emoji => {
+  //     // setValue(curr => `${curr}${emoji.native}`);
+  //   };
+  //   return (
+  //     <Flex container={{ direction: 'column' }}>
+  //       <Input/>
+  //       <EmojiPicker showFooter={false} emojiSize={24} perLine={9} onSelect={onEmojiSelect} />
+  //     </Flex>
+  //   );
+  // };
+
   render() {
     return (
       <div className="sandbox-container">
-        <Card style={{ width: "25rem" }}>
+
+        {/* Emoji - start */}
+        {EmojiPickerDemo()}
+        {/* Emoji - end */}
+
+        {/* Chat - start */}
+        <>
+          {ChatMockData.transcripts.map(transcript => {
+            return (
+              <ChatTranscript
+                tabIndex={0}
+                title={transcript.title}
+                key={transcript.id}
+                transcript={transcript.data}
+              />
+            );
+          })}
+        </>
+        {/* Chat - end */}
+
+        {/* Card - start */}
+        <Card className="sandbox-card" style={{ width: "25rem" }}>
           <CardMedia>
             <Image
               src='https://www.pega.com/sites/default/files/default-og.jpg'
@@ -51,7 +90,8 @@ class Sandbox extends Component {
                   items: [
                     { id: 'action-1', primary: 'Card action 1' },
                     { id: 'action-2', primary: 'Card action 2' },
-                    { id: 'action-3', primary: 'Card action 3' }
+                    { id: 'action-3', primary: 'Card action 3' },
+                    { id: 'action-4', primary: 'Card action 4' }
                   ]
                 }}
               />
@@ -68,6 +108,7 @@ class Sandbox extends Component {
             <Text variant='secondary'>This is the CardFooter</Text>
           </CardFooter>
         </Card>
+        {/* Card - end */}
 
       </div>
     );
