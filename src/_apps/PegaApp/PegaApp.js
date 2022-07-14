@@ -18,6 +18,7 @@ import { LoginPage } from "../../LoginPage";
 //import { IframePage } from "../IframePage";
 //import { SilentPage } from "../SilentPage";
 import { AppHeader } from "../../AppHeader";
+import { Sandbox } from "../../Sandbox";
 import {
   alertActions,
   caseActions,
@@ -187,6 +188,7 @@ class PegaApp extends Component {
                       */}
                     </Container>
                     <PrivateRoute exact path={homeUrl} component={Workarea} />
+                    <Sandbox />
                   </div>
                   <Container className="alert-container">
                     {this.props.alert.activeAlerts.map((alert, index) => {
