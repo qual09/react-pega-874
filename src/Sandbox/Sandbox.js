@@ -1,12 +1,10 @@
-import React, { Component, useState } from "react";
+import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Tab, Container, Menu, Icon } from "semantic-ui-react";
 
 import './Sandbox.css';
 import { ChatMockData } from './Mock.js';
 import EmojiPickerDemo from "./EmojiPickerDemo";
-
-import { EmojiPicker, Flex, Input } from '@pega/cosmos-react-core';
 
 import { ChatTranscript } from '@pega/cosmos-react-social';
 import {
@@ -32,19 +30,6 @@ class Sandbox extends Component {
   componentWillUnmount() {
 
   }
-
-  // EmojiPickerDemo() {
-  //   // const [value, setValue] = useState('');
-  //   const onEmojiSelect = emoji => {
-  //     // setValue(curr => `${curr}${emoji.native}`);
-  //   };
-  //   return (
-  //     <Flex container={{ direction: 'column' }}>
-  //       <Input/>
-  //       <EmojiPicker showFooter={false} emojiSize={24} perLine={9} onSelect={onEmojiSelect} />
-  //     </Flex>
-  //   );
-  // };
 
   render() {
     return (
