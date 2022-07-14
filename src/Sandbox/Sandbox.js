@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Tab, Container, Menu, Icon } from "semantic-ui-react";
 
+import './Sandbox.css';
+
 import {
   Card,
   CardHeader,
@@ -29,7 +31,6 @@ class Sandbox extends Component {
   render() {
     return (
       <div className="sandbox-container">
-
         <Card style={{ width: "25rem" }}>
           <CardMedia>
             <Image
@@ -68,7 +69,6 @@ class Sandbox extends Component {
           </CardFooter>
         </Card>
 
-        yo dawg
       </div>
     );
   }
