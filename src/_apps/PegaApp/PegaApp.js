@@ -51,12 +51,11 @@ class PegaApp extends Component {
       props &&
       props.user.loggedIn &&
       !props.requestInProgress &&
-      props.caseTypes.length === 0 &&
+      props.caseTypes?.length === 0 &&
       !props.caseTypesError
     ) {
       props.dispatch(caseActions.getCaseTypes());
     }
-
     return state;
   }
 
@@ -91,7 +90,6 @@ class PegaApp extends Component {
         }
       });
     }
-
     return validCases;
   }
 
@@ -108,7 +106,6 @@ class PegaApp extends Component {
           this.props.dispatch(alertActions.error(error));
         });
     }
-
     this.setState({ visible: false });
   }
 
@@ -153,7 +150,7 @@ class PegaApp extends Component {
     return (
       <Router history={history}>
         <Switch>
-         <Route>
+          <Route>
             <div id="router-root">
               <AppHeader toggleSidebar={this.toggleSidebar} />
               <Sidebar.Pushable className="main">
