@@ -25,7 +25,9 @@ class WorkObject extends Component {
 
     const stages = props.case && props.case.stages ? props.case.stages : [];
     const assignmentAction = props.assignment
-      ? props.assignment.actions[0].ID
+      ? props.assignment.actions[0]?.ID
+        ? props.assignment.actions[0]?.ID
+        : null
       : null;
 
     // Initial state
@@ -255,25 +257,25 @@ class WorkObject extends Component {
       <Breadcrumb size="large">
         {stage
           ? _.flatMap(
-              stages.map(aStage => {
-                return (
-                  <Breadcrumb.Section
-                    key={aStage.ID}
-                    link={aStage.ID !== stage}
-                    active={aStage.ID === stage}
-                  >
-                    {aStage.name}
-                  </Breadcrumb.Section>
-                );
-              }),
-              (value, index, array) =>
-                array.length - 1 !== index
-                  ? [
-                      value,
-                      <Breadcrumb.Divider key={index} icon="right chevron" />
-                    ]
-                  : value
-            )
+            stages.map(aStage => {
+              return (
+                <Breadcrumb.Section
+                  key={aStage.ID}
+                  link={aStage.ID !== stage}
+                  active={aStage.ID === stage}
+                >
+                  {aStage.name}
+                </Breadcrumb.Section>
+              );
+            }),
+            (value, index, array) =>
+              array.length - 1 !== index
+                ? [
+                  value,
+                  <Breadcrumb.Divider key={index} icon="right chevron" />
+                ]
+                : value
+          )
           : []}
       </Breadcrumb>
     );
