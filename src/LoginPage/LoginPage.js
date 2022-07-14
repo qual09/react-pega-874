@@ -28,8 +28,9 @@ class LoginPage extends Component {
     return endpoints.use_OAuth;
   }
 
-  handleChange = (e, { name, value }) => this.setState({ [name]: value });
-
+  handleChange = (e, { name, value }) => {
+    this.setState({ [name]: value });
+  }
   handleSubmit(e) {
     this.setState({ submitted: true });
     const { username, password } = this.state;
@@ -71,7 +72,7 @@ class LoginPage extends Component {
                 </Form.Field>
               </div>
             )}
-            <Button fluid size="large" color="blue">{btnLabel}</Button>
+            <Button fluid size="large" color="blue" disabled={!this.state.username || !this.state.password}>{btnLabel}</Button>
           </Form>
         </Grid.Column>
       </Grid>
