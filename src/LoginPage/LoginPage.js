@@ -31,6 +31,7 @@ class LoginPage extends Component {
   handleChange = (e, { name, value }) => {
     this.setState({ [name]: value });
   }
+
   handleSubmit(e) {
     this.setState({ submitted: true });
     const { username, password } = this.state;
