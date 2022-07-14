@@ -13,7 +13,7 @@ import {
 } from "semantic-ui-react";
 
 import _ from "lodash";
-import {format as datefn_format, parseISO as datefn_parseISO} from 'date-fns';
+import { format as datefn_format, parseISO as datefn_parseISO } from 'date-fns';
 
 import { caseActions, workQueueActions } from "../_actions";
 import { assignmentActions } from "../_actions";
@@ -134,7 +134,7 @@ class Worklist extends Component {
     if (targetList && targetList.length > 0) {
       // Encountered scenario where two entries had same case id...hence using index to always get a unique key
       return targetList.slice(startIndex, endIndex).map((entry, index) => {
-        let createDateTime = datefn_format( datefn_parseISO(entry.pxCreateDateTime.replace("GMT", "Z")), "PPPP p");
+        let createDateTime = datefn_format(datefn_parseISO(entry.pxCreateDateTime.replace("GMT", "Z")), "PPPP p");
         return (
           <Table.Row
             onClick={e =>
@@ -312,7 +312,7 @@ class Worklist extends Component {
             : /*"Workqueue for " + */ this.state.current
         }
       >
-        <Dropdown.Menu style = {{height: workBaskets?.length > 13 ? '500px' : `${workBaskets?.length * 37}px`, overflowY: workBaskets?.length > 13 ? 'scroll' : 'unset'}}>
+        <Dropdown.Menu style={{ height: workBaskets?.length > 13 ? '500px' : `${workBaskets?.length * 37}px`, overflowY: workBaskets?.length > 13 ? 'scroll' : 'unset' }}>
           {workBaskets.map((wb, index) => {
             if (wb !== "") {
               return (
@@ -359,14 +359,14 @@ class Worklist extends Component {
             </Button>
           </Grid.Column>
           <Grid.Column as="h3" width={8} textAlign="center">
-          {this.getHeaderContent()}
+            {this.getHeaderContent()}
           </Grid.Column>
           <Grid.Column as="h4" width={4} textAlign="right">
-          <Button basic color="blue" icon size="large" data-tooltip="Refresh list" data-inverted="" 
+            <Button basic color="blue" icon size="large" data-tooltip="Refresh list" data-inverted=""
               onClick={e => this.refreshWorklist((this.state.current))}>
               <Icon name="refresh" />
             </Button>
-            <span style={{paddingLeft:"1em"}} />
+            <span style={{ paddingLeft: "1em" }} />
             <div className="ui icon input top aligned">
               <input
                 type="text"
@@ -379,13 +379,13 @@ class Worklist extends Component {
           </Grid.Column>
         </Grid>
         <Segment.Group>
-        <Segment
-          loading={this.props.loading || this.state.loading}
-          style={no_border}
-        >
-          {this.getWorkItemTableFromAssignments()}
-        </Segment>
-      </Segment.Group>
+          <Segment
+            loading={this.props.loading || this.state.loading}
+            style={no_border}
+          >
+            {this.getWorkItemTableFromAssignments()}
+          </Segment>
+        </Segment.Group>
       </div>
     );
   }
