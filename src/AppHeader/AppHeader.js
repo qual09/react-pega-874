@@ -45,13 +45,13 @@ class AppHeader extends Component {
           </Menu.Item>
           {/* SANDBOX - start */}
           <Menu.Item name="app" as={Link} to='/sandbox'>
-            <Icon name="thumbs up" size="large" />
+            <Icon name="gamepad" size="large" />
             SANDBOX
           </Menu.Item>
           {/* SANDBOX - end */}
           <Menu.Menu position="right">
-            <Menu.Item>
-              <Icon name="setting" size="large" title="Open Settings" onClick={(e) => this.setState({ showSettings: true })} />
+            <Menu.Item as={Link} onClick={(e) => this.setState({ showSettings: true })}>
+              <Icon name="setting" size="large" title="Open Settings" />
             </Menu.Item>
             <Menu.Item>{appConstants.VERSION}</Menu.Item>
             {this.props.loggedIn &&

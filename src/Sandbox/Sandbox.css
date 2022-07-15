@@ -1,5 +1,9 @@
 .sandbox-container {
+  border: 1px solid #bbb;
   margin: 20px 0;
+  padding: 20px;
+  background-color: #eee;
+  border-radius: 1em;
 }
 
 .sandbox-container .sandbox-card {
@@ -20,4 +24,5 @@
 
 .sandbox-container input {
   margin-bottom: 10px;
+  width: 348px;
 }
