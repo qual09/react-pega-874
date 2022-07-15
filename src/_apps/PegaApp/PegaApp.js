@@ -182,13 +182,17 @@ class PegaApp extends Component {
                         path={`${process.env.PUBLIC_URL}/login`}
                         component={LoginPage}
                       />
+                      <Route
+                        path={`${process.env.PUBLIC_URL}/sandbox`}
+                        component={Sandbox}
+                      />
+                      {/* <Sandbox /> */}
                       {/*
                         <Route path={`${process.env.PUBLIC_URL}/iframe`} component={IframePage} />
                         <Route path={`${process.env.PUBLIC_URL}/silent`} component={SilentPage} />
                       */}
                     </Container>
                     <PrivateRoute exact path={homeUrl} component={Workarea} />
-                    <Sandbox />
                   </div>
                   <Container className="alert-container">
                     {this.props.alert.activeAlerts.map((alert, index) => {
